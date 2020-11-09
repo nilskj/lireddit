@@ -1,3 +1,4 @@
+import { UserResolver } from "./resolvers/user";
 import { PostResolver } from "./resolvers/post";
 import "reflect-metadata";
 import { HelloResolver } from "./resolvers/hello";
@@ -16,7 +17,7 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [HelloResolver, PostResolver],
+      resolvers: [HelloResolver, PostResolver, UserResolver],
       validate: false,
     }),
     context: () => ({ em: orm.em }),
